@@ -1,0 +1,38 @@
+﻿@model LoginModel
+
+@{
+    Layout = "_CitizenLayout";
+}
+
+<h2>Inloggning för Småstads personal</h2>
+<p class="info">En säker tjänst från Småstads IT-avdelning</p>
+
+<form method="post" asp-controller="Account" asp-action="Login">
+    <p>
+        <input type="hidden" name="isSubmitted" value="true" />
+    </p>
+        
+    <p>
+        <span class="label" asp-validation-for="UserName">Användarnamn:</span><br />
+        <input type="text" asp-for="UserName" />
+        <span asp-validation-for="UserName" />
+    </p>
+
+    <p>
+        <span class="label" asp-validation-for="Password">Lösenord:</span><br />
+        <input type="password" asp-for="Password" />
+        <span asp-validation-for="Password" />
+    </p>
+
+    <p>
+        <input type="hidden" asp-for="ReturnUrl" />
+    </p>
+
+    <p>
+        <input class="button" type="submit" value="Logga in" />
+        <br />
+    </p>
+
+    <div asp-validation-summary="All"></div>
+
+</form>
